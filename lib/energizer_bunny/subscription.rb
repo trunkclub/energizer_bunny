@@ -22,7 +22,7 @@ module EnergizerBunny
         begin
           @handle_message.call headers.properties.headers, msg
           headers.ack
-        rescue Exception => e
+        rescue => e
           @logger.error "!!!Error handling message: #{e.message}"
           headers.reject
           raise if @reraise_errors
