@@ -82,8 +82,9 @@ module EnergizerBunny
     end
 
     def add_message_id_to_header!(opts)
-      opts[:headers] ||= {}
-      opts[:headers]['message_id'] ||= guid_generator.generate
+      opts[:properties]                         ||= {}
+      opts[:properties][:headers]               ||= {}
+      opts[:properties][:headers]['message_id'] ||= guid_generator.generate
     end
 
     def guid_generator
